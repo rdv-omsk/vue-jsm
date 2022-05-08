@@ -9,10 +9,17 @@
 <body>
 	
 <div id="app">
-	<h2>{{ title }} = {{ counter }}</h2>
-	<button @click="riseCounter(5, 'Изменено на 5', $event)">Увеличить на 5</button>
-	<button @click="riseCounter(10, 'Изменено на 10', $event)">Увеличить на 10</button>
+	
+	<h2>
+		<a href="http://google.com" target="_blank" @click.prevent="">Google</a>
+	</h2> 
 
+	<h2 @mousemove="handleMouseMove">
+		X: {{ x }} \ Y: {{ y }}
+
+		<span @mousemove.stop="">Не изменять</span>
+	</h2>
+	
 </div>
 
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -21,20 +28,14 @@
 		new Vue({
 			el: '#app',
 			data: {
-				counter: 0,
-				title: 'Счетчик'
+				x: 0,
+				у: 0
 			},
 			methods: {
-				riseCounter: function(num, str) {
-					this.counter += num
-					this.title = str
-
-					if (num === 5) {
-						event.target.style.color = 'blue'
-					}	else if (num === 10) {
-						event.target.style.color = 'red'
-					}
-				},
+				handleMouseMove: function (event) {
+					this.x = event.clientX
+					this.y = event.clientY
+				}
 			}
 		})
 
