@@ -19,6 +19,10 @@
 
 		<span @mousemove.stop="">Не изменять</span>
 	</h2>
+
+	<hr>
+
+	<input type="text" @keyup="alertValue">
 	
 </div>
 
@@ -35,6 +39,10 @@
 				handleMouseMove: function (event) {
 					this.x = event.clientX
 					this.y = event.clientY
+				},
+				alertValue: function(event) {
+
+						alert(event.target.value)
 				}
 			}
 		})
