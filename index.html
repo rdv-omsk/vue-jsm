@@ -10,22 +10,12 @@
 	
 <div id="app">
 	
-	<!-- <h2 v-if="type === 'a'">A</h2>
-	<h2 v-else-if="type === 'b'">B</h2>
-	<h2 v-else-if="type === 'c'">C</h2>
-	<h2 v-else>not match</h2>
+	<h1 v-show="isVisible">I am visible!</h1>
+	<h2 v-show="!isVisible">You can't see me!</h2>
 
-	<hr> -->
+	<hr>
 
-	<template v-if="isVisible">
-		<h2>I am title</h2>
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, quas!</p>
-	</template>
-	
-	<template v-else="isVisible">
-		<h2 style="color: red">I am title 2</h2>
-		<p style="color: blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quidem?</p>
-	</template>
+	<button @click="isVisible = !isVisible">Toggle</button>
 
 
 </div>
@@ -36,7 +26,6 @@
 		new Vue({
 			el: '#app',
 			data: {
-				// type: 'a'
 				isVisible: true
 			}
 			
